@@ -35,3 +35,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error("Error al inicializar la aplicación:", error);
     }
 });
+

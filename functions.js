@@ -1,7 +1,7 @@
 export async function getPokemons() {
     try {
         let pokes = []; // Usa let para variables locales
-        await fetch('https://pokeapi.co/api/v2/pokemon?limit=1000&offset=0')
+        await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0')
             .then(response => response.json())
             .then(async data => {
                 const pok = data.results;
