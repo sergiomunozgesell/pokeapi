@@ -1,7 +1,278 @@
+:root{
+
+    /* Normal */
+    --background-normal: #A8A77A;
+    --font-color-normal: #FFFFFF;
+
+    /* Fire */
+    --background-fire: #EE8130;
+    --font-color-fire: #FFFFFF;
+
+    /* Water */
+    --background-water: #6390F0;
+    --font-color-water: #FFFFFF;
+
+    /* Electric */
+    --background-electric: #F7D02C;
+    --font-color-electric: #000000;
+
+    /* Grass */
+    --background-grass: #7AC74C;
+    --font-color-grass: #FFFFFF;
+
+    /* Ice */
+    --background-ice: #96D9D6;
+    --font-color-ice: #000000;
+
+    /* Fighting */
+    --background-fighting: #C22E28;
+    --font-color-fighting: #FFFFFF;
+
+    /* Poison */
+    --background-poison: #A33EA1;
+    --font-color-poison: #FFFFFF;
+
+    /* Ground */
+    --background-ground: #E2BF65;
+    --font-color-ground: #000000;
+
+    /* Flying */
+    --background-flying: #A98FF3;
+    --font-color-flying: #FFFFFF;
+
+    /* Psychic */
+    --background-psychic: #F95587;
+    --font-color-psychic: #FFFFFF;
+
+    /* Bug */
+    --background-bug: #A6B91A;
+    --font-color-bug: #000000;
+
+    /* Rock */
+    --background-rock: #B6A136;
+    --font-color-rock: #000000;
+
+    /* Ghost */
+    --background-ghost: #735797;
+    --font-color-ghost: #FFFFFF;
+
+    /* Dragon */
+    --background-dragon: #6F35FC;
+    --font-color-dragon: #FFFFFF;
+
+    /* Dark */
+    --background-dark: #705746;
+    --font-color-dark: #FFFFFF;
+
+    /* Steel */
+    --background-steel: #B7B7CE;
+    --font-color-steel: #000000;
+
+    /* Fairy */
+    --background-fairy: #D685AD;
+    --font-color-fairy: #000000;
+}
+
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     list-style: none;
+
+}
+
+& .tag{
+    display: flex;
+    margin: 2px;
+    width: 100px;
+    height: 25px;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+}
+
+
+
+.maincontainer{
     
+    margin-top: 100px;
+    width: 100%;
+    height: auto + 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    & .Card{
+
+        width: 100%;
+        max-width: 600px;
+        min-width: 200px;
+        margin: 40px 20px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        border-bottom-right-radius: 150px;
+        border-top-left-radius: 150px;
+        transition: all 0.2s ease-in-out;   
+    }
+
+    & .Card:hover{
+        scale: 1.1;
+
+        & .card-poke-profile{
+            
+            & .poke-image{
+                border-radius: 50px;
+            }
+
+        }
+    }
+
+    & .card-poke-profile{
+        width: 100%;
+        height: auto + 150px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 0.8em + 2px;
+        font-weight: bolder;
+
+        & .poke-image{
+            
+            padding: 10px;
+            background-color: white;
+            border-radius: 100%;
+            width: 60%;
+            size: cover;
+            position: center;
+            transition: all 0.3s linear;
+        }
+    }
+
+}
+
+
+.card-poke-stats{
+    color: white;
+    padding: 20px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(81, 81, 81);
+    
+    border-bottom-right-radius: 150px;
+    border-bottom: gray solid;
+
+
+
+    & .poke-list-type{
+        
+        display: flex;
+        flex-direction: row;
+        
+
+    }
+
+    .poke-list-weak{
+        padding-top: 10px;
+        width: 100%;
+        height: 110px;
+        
+        background-image: url("./assets/weakagainst.webp");
+        border-top: solid 1px gray;
+        background-repeat: no-repeat; /* Evita la repetición de la imagen */
+        background-size: 100px 100px; /* Ajusta la imagen al tamaño del contenedor */
+        background-position: center; /* Centra la imagen */
+        
+        justify-content: center; /* Centra los elementos si es necesario */
+        align-items: center; /* Alinea el contenido al centro */
+    
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    
+    
+    
+    
+    
+    
+        & .poke-list-weak-item{
+            font-size: 15px;
+            margin: 3.5px;
+            filter: none;
+        }
+    
+  
+}
+
+
+& .poke-list-doubleto{
+    width: 100%;
+    height: 110px;
+    margin-top:10px;
+    background-image: url("./assets/double\ damage.png");
+    border-top: solid 1px gray;
+    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-size: 100px 100px; /* Ajusta la imagen al tamaño del contenedor */
+    background-position: center; /* Centra la imagen */
+    
+    justify-content: center; /* Centra los elementos si es necesario */
+    align-items: center; /* Alinea el contenido al centro */
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+
+
+
+
+
+    
+
+}  
+
+
+}
+
+
+
+.menu{
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(219, 219, 219, 0.49);
+    flex-wrap: wrap;
+
+    & .button{
+        margin: 5px;
+        width: 70px;
+        height: 30px;
+        display: flex;
+        border-radius: 100px;
+        border: 0px;
+        justify-content: center;
+        align-items: center;
+        transition: 0.05s ease-in-out;        
+    }
+
+    & .button:hover{
+        scale: 1.2;
+        box-shadow:5px 0px 10px gray;
+    }
+
+    & .button:active{
+        scale: 1.1;
+    }
 }
