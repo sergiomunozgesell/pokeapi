@@ -1,6 +1,6 @@
 export async function getPokemons() {
     try {
-        let pokes = []; // Usa let para variables locales
+        let pokes = []; 
         await fetch('https://pokeapi.co/api/v2/pokemon?limit=10000&offset=0')
             .then(response => response.json())
             .then(async data => {
@@ -54,15 +54,14 @@ export async function getPokemons() {
 
 export function rendering(pokearray,container){
         pokearray.forEach(element => {
-        const types = element.type.map(e => e.type.name); // Declaración explícita de 'types'
+        const types = element.type.map(e => e.type.name);
 
-        // Crear la tarjeta
         const card = document.createElement('div');
         card.className = `Card ${types[0]}`;
         card.style.setProperty('background-color', `var(--background-${types[0]})`);
         card.style.setProperty('color', `var(--font-color-${types[0]})`);
 
-        // Perfil del Pokémon
+       
         const card_pokeprofile = document.createElement('div');
         card_pokeprofile.className = "card-poke-profile";
 
@@ -73,7 +72,7 @@ export function rendering(pokearray,container){
         pokeimage.className = "poke-image";
         pokeimage.src = element.picture;
 
-        // Estadísticas del Pokémon
+        
         const card_pokestats = document.createElement('div');
         card_pokestats.className = "card-poke-stats";
 
@@ -94,7 +93,7 @@ export function rendering(pokearray,container){
             tipo.appendChild(li);
         });
 
-        // Debilidades
+     
         const weakagainst = document.createElement('ul');
         weakagainst.className = "poke-list-weak";
         element.weakness.forEach(e => {
@@ -106,7 +105,7 @@ export function rendering(pokearray,container){
             weakagainst.appendChild(list_item);
         });
 
-        // Ventajas
+        
         const smart = document.createElement('ul');
         smart.className = "poke-list-doubleto";
         element.strongAgainst.forEach(e => {
@@ -118,7 +117,7 @@ export function rendering(pokearray,container){
             smart.appendChild(item);
         });
 
-        // Agregar elementos al DOM
+        
         container.appendChild(card);
         card.appendChild(card_pokeprofile);
         card.appendChild(card_pokestats);
@@ -191,3 +190,22 @@ export async function render(type,container) {
         }
 
 }
+
+export async function searching(search,container){
+    
+    let pokes = [];
+    pokes = await getPokemons();
+    let filteredpokes = [];
+    filteredpokes = pokes.filter(p => p.name.includes(search.toLowerCase()));
+    if(filteredpokes.length <= 0){
+        let h1 = document.createElement('h1');
+        h1.innerHTML = "No se encontraron pokemons del parametro correspondiente. Se procedera a renderizar listado completo"
+        h1.style.textAlign = "center";
+        h1.style.color ="red";
+        container.appendChild(h1);
+        rendering(pokes,container);
+    }
+    rendering(filteredpokes,container);
+
+}
+
